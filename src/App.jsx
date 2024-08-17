@@ -30,8 +30,8 @@ const App = () => {
   return (
     <div className="container">
 
-<PickCity fetchWeatherData={handleFetchWeather}  setSelectedTown={setSelectedTown} />
-<DisplayResult weatherData={weatherData}  selectedTown={selectedTown} />
+<PickCity fetchWeatherData={handleFetchWeather} setLoading={setLoading} setSelectedTown={setSelectedTown} />
+<DisplayResult weatherData={weatherData} loading={loading} selectedTown={selectedTown} />
     </div>
   )
 }

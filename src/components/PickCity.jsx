@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 
-const PickCity = ({fetchWeatherData,setSelectedTown}) => {
+const PickCity = ({fetchWeatherData,setSelectedTown,setLoading}) => {
     const [userChoice, setUserChoice] = useState("");
     const [showList, setShowList] = useState([]);
     const [cities, setCities] = useState([]);
@@ -36,7 +36,7 @@ const PickCity = ({fetchWeatherData,setSelectedTown}) => {
         setShowList([]);
         setSelectedTown(select.name)
         
-      
+        setLoading(true)
         fetchWeatherData(select);
         setUserChoice('')
       }

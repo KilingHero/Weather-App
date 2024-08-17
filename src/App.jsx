@@ -1,8 +1,9 @@
 import React from 'react'
+import PickCity from './components/PickCity'
 
 const App = () => {
   return (
-    <div>App</div>
+    <PickCity />
   )
 }
 

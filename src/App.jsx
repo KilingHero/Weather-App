@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PickCity from './components/PickCity'
+import DisplayResult from './components/DisplayResult';
 
 
 
@@ -11,6 +12,7 @@ const getWeatherData = async (cityId) => {
   return response.json();
 };
 const App = () => {
+
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(false);
   
@@ -25,7 +27,11 @@ const App = () => {
 
 
   return (
-    <PickCity />
+    <div className="container">
+
+      <PickCity />
+      <DisplayResult  weatherData={weatherData}/>
+    </div>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DisplayResult = ({weatherData, selectedTown, loading}) => {
+const DisplayResult = ({weatherData,loading, selectedTown}) => {
   
 
 

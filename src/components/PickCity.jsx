@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 
-const PickCity = () => {
+const PickCity = ({fetchWeatherData,setSelectedTown}) => {
     const [userChoice, setUserChoice] = useState("");
     const [showList, setShowList] = useState([]);
     const [cities, setCities] = useState([]);
@@ -30,6 +30,18 @@ const PickCity = () => {
         }
       };
 
+      //  funkce pro zpracování výsledku a aktualizaci stavu
+      const handleUserClick = (select) => {
+        setUserChoice(select.name.toLowerCase());
+        setShowList([]);
+        setSelectedTown(select.name)
+        
+      
+        fetchWeatherData(select);
+        setUserChoice('')
+      }
+    
+
     return <>
     <form action="">
       <input
@@ -41,12 +53,13 @@ const PickCity = () => {
      
 
 
+
       <div className="renderList"> 
 {/* vypis vysledku */}
       {showList.length > 0 && (
         <ul >
           {showList.map((city) => (
-            <li className="list"    key={city.id}> {city.name} </li>
+            <li className="list" onClick={()=> handleUserClick(city)}    key={city.id}> {city.name} </li>
           ))}
         </ul>
       )}

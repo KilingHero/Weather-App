@@ -15,6 +15,7 @@ const App = () => {
 
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const[selectedTown, setSelectedTown] = useState('');
   
 
   //  funkce pro zpracování výsledku a aktualizaci stavu
@@ -29,8 +30,8 @@ const App = () => {
   return (
     <div className="container">
 
-      <PickCity />
-      <DisplayResult  weatherData={weatherData}/>
+<PickCity fetchWeatherData={handleFetchWeather}  setSelectedTown={setSelectedTown} />
+<DisplayResult weatherData={weatherData}  selectedTown={selectedTown} />
     </div>
   )
 }

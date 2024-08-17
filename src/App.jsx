@@ -11,6 +11,19 @@ const getWeatherData = async (cityId) => {
   return response.json();
 };
 const App = () => {
+  const [weatherData, setWeatherData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
+
+  //  funkce pro zpracování výsledku a aktualizaci stavu
+  const handleFetchWeather = async (city) => {
+    setLoading(true);
+    const data = await getWeatherData(city.id);
+    setWeatherData(data.list);
+    setLoading(false);
+  };
+
+
   return (
     <PickCity />
   )
